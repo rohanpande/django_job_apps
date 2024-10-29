@@ -1,0 +1,60 @@
+# path Conveter Types 
+## int -> integer
+## ex: path('jobs/<int:id>', '')
+## str -> string type -> by default is convert is acted 
+## ex: path('jobs/<str:id>', '')
+## slug -> slug 
+## ex: path('jobs/<slug:id>', '')
+## uuid -> UID
+## ex: path('jobs/<uuid:id>', '')
+
+# Reverse Functions:
+## reverse(url_name, arguments)
+## ex. path('product-list', views.product_list, name='product_list')
+## ex. path('product/<int: id>', views.production_detail, name='product_detail')
+### ex. reverse('product_detail', args=(1,))
+
+## Render Function
+## render('<request_object>', '<template_name>', '<context>')
+
+## Tags
+# Conditional logic: if..else statements
+# Loops: For Loops
+# Specifying imports: import tag
+# Performing inheritance: extends tag
+# Declaring blocks: block tag
+
+# ## if..else statements
+# {% if condition %}
+# # Render if body
+# {% else %}
+# # Render else body
+# {% endif %}
+
+# ## for loop tag
+# {% for odd in odds %}
+# # logic here
+# {% endfor %}
+
+## {% url 'url-name' %}
+
+
+## makemigrations
+## sqlmigrate - display the SQL statement for a migration
+## migrate - applying migration and unapplying the migration
+## showmigration - list the migrations of the projects along with their status
+
+
+### view sql query
+# python manager.py sqlmigrate <app_name> <migraiton_name>
+
+
+### to created super user
+# python manage.py createsuperuser
+
+### Customizaing Admin Panel
+## Customizing the list page
+## Change the way reords are being displayed 
+## Better control over filterwers
+# Customizing Detail Page
+## 

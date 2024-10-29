@@ -1,0 +1,63 @@
+------------------------------
+# OpenVpn Server Setup
+------------------------------
+sudo apt-get install openvpn easy-rsa
+
+- Above command will install openvpn and easy-rsa 
+
+------------------------------
+# Setup server.conf
+------------------------------
+
+sudo cp /usr/share/doc/openvpn/server.conf /etc/openvpn/server.conf
+
+----------------------------------
+# Modifications to server.conf
+----------------------------------
+
+- For more encryption
+
+dh dh1024.pem dh2048.pem
+
+- Remove commenting from 
+
+push "redirect-gateway def1 bypass-dhcp"
+
+----------------------------------
+# /etc/sysctl.conf
+----------------------------------
+set network forward to 1 
+
+------------------------------------------
+# Install ufw ( frontend for iptables )
+------------------------------------------
+sudo ufw allow ssh 
+sudo ufw allow 1194/udp
+
+------------------------------------------
+# Edit /etc/default/ufw
+------------------------------------------
+
+------------------------------------------
+# Edit /etc/ufw/before.rules
+------------------------------------------
+
+
+------------------------------------------
+# Edit start ufw
+------------------------------------------
+sudo ufw status 
+sudo ufw enable
+
+------------------------------------------
+# Set up dh2048 key
+------------------------------------------
+cp -r /usr/share/easy-rsa /etc/openvpn/easy-rsa/keys
+cp -r /usr/share/easy-rsa /etc/openvpn
+mkdir /etc/openvpn/easy-ras/keys
+
+Edit /etc/openvpn/easy-rsa/vars.example
+
+openssl dhparam -out /etc/openvpn/dh2048.pem 2048
+
+
